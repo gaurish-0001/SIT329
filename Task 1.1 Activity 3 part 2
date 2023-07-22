@@ -1,0 +1,30 @@
+// Name : Gaurish Bhatia
+// Student ID: 222187151
+// Remarks : This is the code file for the task 1.1P for the blinking of multiple LEDs.
+
+// create module for the implementation of the project.
+module blink(
+input wire clk, 
+output wire [7:0] LED // Variable for tha array of 8 LEDs.
+);
+
+// Creating a counter variable.
+reg [31:0] cnt; // counter till 32 bits.
+
+initial begin
+
+cnt <= 32'h00000000; // initialisation for the counter.
+
+end
+
+always @(posedge clk) begin
+
+cnt <= cnt+1; // Incrementing the counter by 1.
+
+end
+
+//assigning the LEDs to 28 bits of 21 of the counter.
+
+assign LED = cnt[28:21];
+
+endmodule// Ending the counter
